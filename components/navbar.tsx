@@ -7,7 +7,8 @@ import NavbarActions from "./navbar-actions";
 export const revalidate = 0;
 
 const Navbar = async () => {
-  const categories = await getCategories();
+  const storeId = "6ef56bf2-edda-467a-a16e-0fbc92b0791e";
+  const categories = await getCategories(storeId);
   return(
     <div className="border-b">
       <Container>

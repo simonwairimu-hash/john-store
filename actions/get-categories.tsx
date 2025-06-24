@@ -11,14 +11,14 @@ const getCategories = async (): Promise<Category[]> =>{
 export default getCategories;*/
 import { Category } from "@/types";
 
-const getCategories = async (): Promise<Category[]> => {
+const getCategories = async (storeId: string): Promise<Category[]> => {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   if (!baseUrl) {
     throw new Error("Missing NEXT_PUBLIC_API_URL environment variable");
   }
 
-  const res = await fetch(`${baseUrl}/categories`);
+  const res = await fetch(`${baseUrl}/${storeId}/categories`);
 
   if (!res.ok) {
     throw new Error(`Failed to fetch categories: ${res.statusText}`);
